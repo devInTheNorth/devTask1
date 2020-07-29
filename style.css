@@ -188,7 +188,7 @@ input[type='text'].valid::after, input[type='email'].valid::after, input[type='p
      text-align: center;
      font-size: larger;
      padding: 1em;
-     position: absolute;
+     position: fixed;
      bottom: 0px;
      width: 100%;
  }
