@@ -1,0 +1,233 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background-image: repeating-linear-gradient(to left, gray, teal,gray  );
+    overflow: hidden;
+   
+    
+}
+section{
+    display: flex;
+}
+form{
+    
+    width: 90%;
+    background-position: absolute;
+    margin: 2% auto; 
+    
+}
+fieldset{
+ border-width: 0px; 
+ width: fit-content;
+ width: 100%;
+ /* background-image: linear-gradient(to top right, white, gray, gainsboro); */
+ box-shadow: 6px 5px 4px 4px rgba(0, 128, 128, .5); 
+/*  box-shadow: 10px 0px 10px 10px rgba(105,105,105, .9) ; */
+ background-color: white;
+ border: 1px solid teal;
+}
+h1{
+    text-align: center;
+    background-color: steelblue;
+    padding:.3em;
+    color:black;
+    transform: rotate(12);
+}
+
+input:not([type='submit']){
+    border-radius: 0px;
+    width: 90%;
+    font-size: 1.4em;
+    height: 30px;
+    border:2px solid black;
+    margin: 0px;
+    margin-left: .7rem;
+    margin-right: .5rem;
+    margin-bottom: .4rem;
+    padding-left: .5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+}
+input[type='text'], input[type='email'], input[type='password']{
+    border: 1px solid black;
+    border-bottom: 4px solid teal;
+}
+label{
+margin: 0px .7em ;
+}
+.btn{
+        margin-top: 1em;
+        padding: .8em 1.5em;
+        font-family:  Geneva, Verdana, sans-serif;
+        font-size: 1em;
+        border: 1px solid rgb(0, 128, 128);
+        box-shadow: 5px 5px 5px 2px rgba(0,0,0, .5);
+        font-weight: bold;
+        margin-top: .1em;
+        margin-left: 10%;
+        margin-bottom: 1em;
+        width: 70%;
+}
+#progress{
+    margin-top: 5px;
+        margin-left:2%;
+        margin-bottom: 10px;
+        height:1em ;
+        width:85% ;
+        /* border: 2px solid crimson;
+        border-radius: 10px; */
+    
+}
+.btn:hover{
+    background-color: darkcyan;
+    color: white
+}
+.btn:after{
+    content: " *****";
+}
+input[type='submit']::after{
+    content: " *****";
+}
+
+label{
+    font-weight: bold;
+}
+label::after{
+    content: " *";
+   
+}
+legend{
+    
+}
+
+form input:focus{
+    border: 1px solid cyan;
+    border-bottom: 4px solid teal !important;
+}
+@media(min-width:768px){
+    form{
+        width: 40%;
+    }
+    .love{
+        color: black;
+        animation: anim 5s infinite;
+       margin: .5em;
+    }
+:required:after{
+    content: '*';
+    color: red;
+    font-weight: bold;
+}
+:disabled{
+   background-color: rgba(16, 16, 16, 0.3), rgb(170, 170, 170);
+}
+input[type='submit']:disabled:hover{
+
+   background-color:  rgba(16, 16, 16, 0.3), rgb(170, 170, 170);
+}
+}
+#btnSub:disabled{
+    opacity: .4;
+    color: black;
+    background-color:#ccc;
+    border: 1px solid #eeeeee;
+ }
+ #btnSub:disabled:hover{
+    opacity: .4;
+    color: black;
+    background-color:  #ccc;
+ }
+ input[type='text'].invalid,  input[type='email'].invalid,  input[type='password'].invalid{
+     border:1px solid red;
+     box-shadow: 5px 2px 1px red;
+ }
+ input[type='text'].valid, input[type='email'].valid, input[type='password'].valid{
+    border:1px solid  rgb(59, 235, 88);
+    box-shadow: 1px 1px 5px rgb(34, 209, 34);
+    
+}
+input[type='text'].valid::after, input[type='email'].valid::after, input[type='password'].valid::after{
+    content: '✅';   
+}
+.checked{
+    background-color:green;
+    color: white;
+}
+ footer{
+     background-color: azure;
+     text-align: center;
+     font-size: larger;
+     padding: 1em;
+     position: absolute;
+     bottom: 0px;
+     width: 100%;
+ }
+ .love{
+     color: red;
+   
+ }
+ a{
+     text-decoration: none;
+     cursor: pointer;
+     padding: 8px 3px;
+     padding-right: 0px;
+     border-radius: 20px;
+     border-right-width: 0px;
+     transition: all 6s'
+   
+ }
+ a::after{
+     content: '🔗' ; 
+     font-size: 1.5em;
+     color:whitesmoke;
+     background-image: repeating-linear-gradient(to left, brown, gray, teal,gray  );
+     border-radius: 50%;
+     padding: 10px;
+     margin-left: 5px;
+     box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+
+ }
+ a:hover{
+    cursor: pointer;
+    background-image: repeating-linear-gradient(to left, brown, gray, teal, salmon  );
+}
+
+ @keyframes anim{
+     0%{
+         color: orangered;
+         
+
+     }
+     20%{
+         color: indianred;
+         font-size: 1em;
+
+     }
+     40%{
+         color:crimson;
+         font-size: 1.2em;
+
+    }
+     60%{
+         color: lightcoral;
+         font-size: 1.4em;
+
+    }
+    80%{
+
+        color:red;
+        font-size: 1.5em;
+
+    }
+    100%{
+        color: pink;
+        font-size: 1.6em;
+
+
+    }
+    
+ }
+ 
+ 

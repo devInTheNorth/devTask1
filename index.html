@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+
+    </header>
+    <section>
+        <form id="RegForm">
+            <fieldset aria-label="Registration Form" aria-describedby="#h1">
+               <h1 role="Legend" id="h1" >  Sign Up Form </h1>
+                <label for="txtFName">First Name:</label>
+                <p>
+                    <input type="text" name="txtFName" placeholder="First Name" id="txtFName"  required pattern="^[a-zA-Z]{2,25}$"></p>
+                <label for="txtLName">Last Name:</label>
+                <p>
+                    <input type="text" name="txtLName" placeholder="Last Name" id="txtLName" required pattern="^[a-zA-Z]{2,25}$"></p>
+                <label for="txtMail">Email Address:</label>
+                <p>
+                    <input type="email" name="txtMail" placeholder="Email Address" id="txtMail" aria-required="true" required pattern="^.+@.+\..{2,4}$"></p>
+                <label for="txtPhone">Phone Number [Int'l Format] :</label>
+                <p><input placeholder="+234" type="text" name="txtPhone" id="txtPhone" required pattern="^\+234[0-9]{10}$"></p>
+               
+                <label for="txtPword">Password [8 to 20 characters] </label>
+                <p>
+                    <input type="password" name="txtPword" minlength="8" maxlength="20" id="txtPword" aria-required="true" required pattern="^(.){8,20}$"></p>
+                <label for="txtCPword">Confirm Password</label>
+                <p>
+                    <input type="password" name="txtCPword" id="txtCPword" required pattern="^(.){8,20}$"></p>
+                    <div class="progress"><meter value="0" max="100" id="progress"></meter> <span class="progress"></span>
+                    </div>
+
+                <p> <input type="submit"  id="btnSub" class="btn" value="Submit"> </p>
+        </fieldset>
+
+        </form>
+    </section>
+    <footer> Made with <span class="love"  > ❤️ </span> by <a href="https://www.github.com/devInTheNorth">devInTheNorth</a> </footer>
+    
+
+<script src="helper.js"></script>
+<script>
+        let progressBar = document.querySelector('#progress');
+        let validCtrls = new Array();
+    let isValidFName = false, isValidLName = false , isValidMail  = false, isValidPhone = false, isValidPword  = false, isConfirmedPword  = false;
+
+    
+    window.addEventListener('load', () => {
+        initPhone();
+        
+    })
+        
+
+  /*   let a= document.querySelector('#txtFName').addEventListener('input blur', () =>{
+        if(a.value == 'a'){console.log('bnfndfn')} else{console.log('njandknfd')};
+    }) */
+    function validateTexts(){
+       let el = document.querySelectorAll(`input[type=text'], input[type=email'], input[type=password']`);
+       el.addEventListener('blur', () => {
+        
+       })
+
+    }
+
+
+    function initPhone(){
+        let a= document.querySelector('#txtPhone');
+        a.addEventListener('focus', () =>{
+            if(a.value == ""){ a.value = "+234"; }
+                });
+        a.addEventListener('blur', () =>{
+            if(a.value == ""){ a.value = "+234";   }
+                });
+            }
+
+        function validateInput(Input_Element, booleanCtrl){
+                let a = document.querySelector(`#${Input_Element}`);
+                //let regex = new RegExp(Input_Element.getAttribute('pattern')); */
+                /* booleanCtrl = (regex.test(Input_Element.value))? true: false; */
+                if(a.checkValidity() == true ){
+                    (a.className.includes('invalid'))? a.classList.replace('invalid', 'valid') : a.classList.add('valid') ;
+                   
+            
+                   if (! validCtrls.includes(a.id))
+                    {
+                        validCtrls.push(a.id);
+                        progressBar.value += 18;
+                        reportProgress();
+                    }
+                  
+
+                }
+                else if(a.checkValidity() == false){
+                    (a.className.includes('valid'))? a.classList.replace('valid', 'invalid'): a.classList.add('invalid') ;
+                    //a.insertAdjacentHTML('afterEnd', `<span class='checked'> &#9989; </span>`);
+                   
+                    // progressBar.value +=  (booleanCtrl == false)? 0: -10;
+                   // booleanCtrl = false;
+                   if (validCtrls.includes(a.id))
+                    {
+                        validCtrls.pop(a.id);
+                     progressBar.value += (progressBar.value == 0)? 0: -18 ;
+                     reportProgress();
+                    }
+
+                }
+                
+                
+            }
+        function reportProgress(){
+                document.querySelector('span.progress').textContent = progressBar.value + "%";
+            }
+        function findEl(Element_ID){
+            return document.querySelector(Element_ID);
+        }
+        function addClass(Element_ID, new_class){
+            return document.querySelector(Element_ID).classList.add(new_class);
+        }
+        function replaceClass( Element_ID, old_class, new_class){
+            return document.querySelector(Element_ID).classList.replace( old_class, new_class);
+        }
+        function makeGreen(Input_Element){
+           findEl(`#${Input_Element}`).style.border = '2px solid rgb(59, 235, 88)';
+           findEl(`#${Input_Element}`).style.borderBottom = '3px solid rgb(59, 235, 88)';
+        }
+        
+        function confirmPassWord(){
+                
+            let pword = document.querySelector('#txtPword');
+            let cpword = document.querySelector('#txtCPword');
+                if(pword.value == cpword.value && cpword.checkValidity() ){
+                    (cpword.className.includes('invalid'))? cpword.classList.replace('invalid', 'valid') : cpword.classList.add('valid') ;
+            
+                   if (! validCtrls.includes(cpword.id))
+                    {
+                        validCtrls.push(cpword.id);
+                        progressBar.value += 10;
+                        reportProgress();
+                    }
+                  
+
+                }
+                else if(pword.value != cpword.value ){
+                    (cpword.className.includes('valid'))? cpword.classList.replace('valid', 'invalid'): cpword.classList.add('invalid') ;
+                   // progressBar.value +=  (booleanCtrl == false)? 0: -10;
+                   // booleanCtrl = false;
+                   if (validCtrls.includes(cpword.id))
+                    {
+                        validCtrls.pop(cpword.id);
+                     progressBar.value += (progressBar.value == 0)? 0: -10 ;
+                     reportProgress();
+                    }
+
+                }
+                
+                
+            }
+/* VALIDATE ALL INPUT TEXTS */
+document.querySelector('#txtFName').addEventListener('blur', function()  {
+    validateInput(this.id, isValidFName);
+    
+})
+document.querySelector('#txtLName').addEventListener('blur', function() {
+    validateInput(this.id, isValidLName);
+    
+})
+document.querySelector('#txtMail').addEventListener('blur', function()  {
+    validateInput(this.id, isValidMail);
+    
+})
+document.querySelector('#txtPhone').addEventListener('blur', function()  {
+    validateInput(this.id, isValidPhone);
+    
+})
+document.querySelector('#txtPword').addEventListener('blur', function() {
+    validateInput(this.id, isValidPword);
+    
+})
+document.querySelector('#txtCPword').addEventListener('blur', function() {
+   /* (findEl('#txtPword').value == findEl('#txtCPword').value)? () =>{
+       if((findEl('#txtPword')).className.includes('valid')){replaceClass(`#${this.id}`, 'invalid', 'valid');}
+       else{addClass(`#${this.id}`, 'valid');}
+   } : () => {
+    if((findEl('#txtPword')).className.includes('valid')){replaceClass(`#${this.id}`, 'valid', 'invalid');}
+       else{addClass(`#${this.id}`, 'invalid');}
+
+   }
+ */
+
+
+
+   /* let pword = document.querySelector('#txtPword');
+   let cpword = document.querySelector('#txtCPword');
+   if(pword.value == cpword.value){
+       if(cpword.className.includes('invalid')){
+          // replaceClass(`#${this.id}`, 'invalid', 'valid');
+          cpword.className.replace('invalid', 'valid')
+       }
+       
+   }
+    else{
+        if(cpword.className.includes('valid')){
+          // replaceClass(`#${this.id}`, 'invalid', 'valid');
+          cpword.className.replace('valid', 'invalid')
+       }
+            
+        } */
+ confirmPassWord();
+  
+    
+})
+
+</script>
+</body>
+</html>
