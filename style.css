@@ -105,7 +105,6 @@ form input:focus{
     }
     .love{
         color: black;
-        animation: anim 1s infinite;
        margin: .5em .8em;
     }
 :required:after{
