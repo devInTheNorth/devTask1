@@ -100,17 +100,6 @@ form input:focus{
     border-bottom: 4px solid teal !important;
 }
 @media(min-width:768px){
-   footer{
-     background-color: green;
-     text-align: center;
-     font-size: larger;
-     padding: 1em;
-     position: fixed;
-     bottom: 0px;
-     width: 100%;
- }
-   
-
     form{
         width: 40%;
     }
