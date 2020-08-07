@@ -101,7 +101,7 @@ form input:focus{
 }
 @media(min-width:768px){
    footer{
-     background-color: azure;
+     background-color: red;
      text-align: center;
      font-size: larger;
      padding: 1em;
